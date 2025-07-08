@@ -1,0 +1,121 @@
+<div class="container">
+
+    <header>
+
+        <h1>YaMatch! 日本百名山診断</h1>
+
+        <p>いくつかの質問に答えるだけで、今のあなたにピッタリな日本百名山を見つけます。</p>
+
+    </header>
+
+    <!-- 質問エリア -->
+
+    <main id="questions-area">
+
+        <!-- 質問1: 難易度 -->
+
+        <section class="question active" id="q1">
+
+            <h2>Q1. あなたの登山経験は？</h2>
+
+            <div class="options">
+
+                <button class="option-btn" data-q="difficulty" data-v="A,B">ほぼ初心者（ハイキング程度）</button>
+
+                <button class="option-btn" data-q="difficulty" data-v="C,D">日帰り登山は数回経験あり</button>
+
+                <button class="option-btn" data-q="difficulty" data-v="E,F">テント泊や雪山も経験あり</button>
+
+            </div>
+
+        </section>
+
+        <!-- 質問2: エリア -->
+
+        <section class="question" id="q2">
+
+            <h2>Q2. どのエリアの山に行ってみたい？</h2>
+
+            <div class="options">
+
+                <button class="option-btn" data-q="area" data-v="北海道">北海道</button>
+
+                <button class="option-btn" data-q="area" data-v="東北">東北</button>
+
+                <button class="option-btn" data-q="area" data-v="関東・甲信越">関東・甲信越</button>
+
+                <button class="option-btn" data-q="area" data-v="北アルプス">北アルプス</button>
+
+                <button class="option-btn" data-q="area" data-v="中央・南アルプス">中央・南アルプス</button>
+
+                <button class="option-btn" data-q="area" data-v="西日本">西日本</button>
+
+            </div>
+
+        </section>
+
+        <!-- 質問3: こだわり -->
+
+        <section class="question" id="q3">
+
+            <h2>Q3. どんな体験がしたい？ (複数選択可)</h2>
+
+            <div class="options tag-options" id="tags-container">
+
+                <!-- タグはJSで動的に生成 -->
+
+            </div>
+
+            <button id="submit-btn" class="submit-btn">この条件で診断する！</button>
+
+        </section>
+
+    </main>
+
+    <!-- 結果エリア -->
+
+    <section id="result-area" class="result-area">
+
+        <div class="loader" id="loader"></div>
+
+        <div id="result-content" class="hidden">
+
+            <h2>あなたにおすすめの山は...</h2>
+
+            <div class="result-card">
+
+                <img id="result-image" src="" alt="山の写真">
+
+                <div class="result-body">
+
+                    <h3 id="result-name"></h3>
+
+                    <p class="catchphrase" id="result-catchphrase"></p>
+
+                    <div class="info-tags">
+
+                        <span id="result-area-span" class="info-tag"></span>
+
+                        <span id="result-difficulty-span" class="info-tag"></span>
+
+                    </div>
+
+                    <p class="reason" id="result-reason"></p>
+
+                </div>
+
+            </div>
+
+            <button id="retry-btn" class="retry-btn">もう一度診断する</button>
+
+        </div>
+
+    </section>
+
+</div>
+
+<footer>
+
+    <p>Powered by AI. Mountain data from <a href="https://www.momonayama.net/hundred_mt_list_data/list.html" target="_blank">momonayama.net</a></p>
+
+</footer>
