@@ -1,203 +1,102 @@
-const allMountains = [
-
+[
   { "id": 1, "name": "利尻山", "prefecture": "北海道", "area": "北海道", "difficulty": "D", "tags": ["景色・眺望", "高山植物"], "imageUrl": "https://images.unsplash.com/photo-1617181379925-a13e7013a30c?w=600", "catchphrase": "海に浮かぶ、花の浮島。北の秀峰に挑戦しよう！" },
-
   { "id": 2, "name": "羅臼岳", "prefecture": "北海道", "area": "北海道", "difficulty": "C", "tags": ["景色・眺望", "高山植物"], "imageUrl": "https://images.unsplash.com/photo-1629733938061-6893b327b8ae?w=600", "catchphrase": "世界遺産・知床の最高峰。手つかずの自然がここにある。" },
-
   { "id": 3, "name": "斜里岳", "prefecture": "北海道", "area": "北海道", "difficulty": "C", "tags": ["景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1631623588106-8798d1a6e97e?w=600", "catchphrase": "変化に富んだ沢登りが魅力。清流と共に頂を目指す。" },
-
   { "id": 4, "name": "阿寒岳", "prefecture": "北海道", "area": "北海道", "difficulty": "B", "tags": ["景色・眺望", "アクセス"], "imageUrl": "https://images.unsplash.com/photo-1594916428479-24757c63b469?w=600", "catchphrase": "神秘的な湖沼群と火山地形が織りなす絶景。" },
-
   { "id": 5, "name": "大雪山", "prefecture": "北海道", "area": "北海道", "difficulty": "B", "tags": ["高山植物", "景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1595692339891-6c617cfa856b?w=600", "catchphrase": "北海道の屋根「神々の遊ぶ庭」で、壮大なお花畑を歩く。" },
-
   { "id": 6, "name": "トムラウシ山", "prefecture": "北海道", "area": "北海道", "difficulty": "E", "tags": ["高山植物", "景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Tomuraushi", "catchphrase": "アプローチは長いが、天上の楽園が待っている。" },
-
   { "id": 7, "name": "十勝岳", "prefecture": "北海道", "area": "北海道", "difficulty": "C", "tags": ["景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1605553147395-6f1646a75902?w=600", "catchphrase": "今も活動を続ける活火山。大地の息吹を感じる登山。" },
-
   { "id": 8, "name": "幌尻岳", "prefecture": "北海道", "area": "北海道", "difficulty": "F", "tags": ["景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Poroshiri", "catchphrase": "百名山最難関の一つ。渡渉を繰り返し、たどり着く秘境の頂。" },
-
   { "id": 9, "name": "後方羊蹄山", "prefecture": "北海道", "area": "北海道", "difficulty": "D", "tags": ["景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1579432851250-7216a4959a43?w=600", "catchphrase": "その美しさから「蝦夷富士」と呼ばれる名峰。" },
-
   { "id": 10, "name": "岩木山", "prefecture": "青森県", "area": "東北", "difficulty": "C", "tags": ["景色・眺望", "アクセス", "歴史・信仰"], "imageUrl": "https://images.unsplash.com/photo-1632970142278-a37996a5a855?w=600", "catchphrase": "津軽平野にそびえる「津軽富士」。信仰の歴史も深い。" },
-
   { "id": 11, "name": "八甲田山", "prefecture": "青森県", "area": "東北", "difficulty": "B", "tags": ["アクセス", "高山植物", "温泉"], "imageUrl": "https://images.unsplash.com/photo-1603402484501-143075908b02?w=600", "catchphrase": "ロープウェイで気軽に高層湿原へ。紅葉と樹氷は圧巻。" },
-
   { "id": 12, "name": "八幡平", "prefecture": "岩手県/秋田県", "area": "東北", "difficulty": "A", "tags": ["アクセス", "高山植物", "温泉"], "imageUrl": "https://images.unsplash.com/photo-1598463825919-4452c6780a47?w=600", "catchphrase": "初心者でも安心！ドライブウェイで山頂付近まで楽々アクセス。" },
-
   { "id": 13, "name": "岩手山", "prefecture": "岩手県", "area": "東北", "difficulty": "D", "tags": ["景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1596753020626-44c5a43f87b8?w=600", "catchphrase": "南部富士とも呼ばれる、堂々たる山容の活火山。" },
-
   { "id": 14, "name": "早池峰山", "prefecture": "岩手県", "area": "東北", "difficulty": "C", "tags": ["高山植物", "歴史・信仰"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Hayachine", "catchphrase": "固有種「ハヤチネウスユキソウ」が咲く、花の百名山。" },
-
   { "id": 15, "name": "鳥海山", "prefecture": "山形県/秋田県", "area": "東北", "difficulty": "D", "tags": ["景色・眺望", "高山植物"], "imageUrl": "https://images.unsplash.com/photo-1629033342082-8d7524942978?w=600", "catchphrase": "日本海に裾野を広げる「出羽富士」。夏には雪渓も楽しめる。" },
-
   { "id": 16, "name": "月山", "prefecture": "山形県", "area": "東北", "difficulty": "B", "tags": ["アクセス", "高山植物", "歴史・信仰"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Gassan", "catchphrase": "夏スキーと花の楽園。出羽三山の主峰。" },
-
   { "id": 17, "name": "朝日岳", "prefecture": "山形県/新潟県", "area": "東北", "difficulty": "F", "tags": ["景色・眺望", "高山植物"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Asahidake(Yamagata)", "catchphrase": "東北の秘境。アプローチは長く、原始の自然が残る。" },
-
   { "id": 18, "name": "蔵王山", "prefecture": "山形県/宮城県", "area": "東北", "difficulty": "A", "tags": ["アクセス", "景色・眺望", "温泉"], "imageUrl": "https://images.unsplash.com/photo-1549826383-a365b3236e39?w=600", "catchphrase": "エメラルドグリーンの御釜は必見。冬は樹氷が有名。" },
-
   { "id": 19, "name": "飯豊山", "prefecture": "山形県/福島県/新潟県", "area": "東北", "difficulty": "F", "tags": ["景色・眺望", "高山植物"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Iidesan", "catchphrase": "雪渓とお花畑が美しい、東北アルプスの盟主。" },
-
   { "id": 20, "name": "吾妻山", "prefecture": "山形県/福島県", "area": "東北", "difficulty": "A", "tags": ["アクセス", "景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1692231221752-64b327b7a66f?w=600", "catchphrase": "「吾妻の瞳」と呼ばれる火口湖、五色沼が神秘的。" },
-
   { "id": 21, "name": "安達太良山", "prefecture": "福島県", "area": "東北", "difficulty": "B", "tags": ["アクセス", "景色・眺望", "温泉"], "imageUrl": "https://images.unsplash.com/photo-1632724492751-62a2673d3a33?w=600", "catchphrase": "ロープウェイで楽々。山頂からの展望と紅葉が素晴らしい。" },
-
   { "id": 22, "name": "磐梯山", "prefecture": "福島県", "area": "東北", "difficulty": "B", "tags": ["景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1636250269022-1b1e95655077?w=600", "catchphrase": "荒々しい火口壁と裏磐梯の湖沼群の対比が美しい。" },
-
   { "id": 23, "name": "会津駒ヶ岳", "prefecture": "福島県", "area": "東北", "difficulty": "C", "tags": ["高山植物"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Aizu-Komagatake", "catchphrase": "山頂に広がる広大な湿原は、まさに天空の楽園。" },
-
   { "id": 24, "name": "那須岳", "prefecture": "栃木県/福島県", "area": "関東・甲信越", "difficulty": "A", "tags": ["アクセス", "景色・眺望", "温泉"], "imageUrl": "https://images.unsplash.com/photo-1633532750346-e962803b3064?w=600", "catchphrase": "首都圏から好アクセス。ロープウェイで気軽に火山体験。" },
-
   { "id": 25, "name": "越後駒ヶ岳", "prefecture": "新潟県", "area": "関東・甲信越", "difficulty": "E", "tags": ["景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Echigo-Komagatake", "catchphrase": "越後三山の一つ。雄大な姿と急登が登山者を魅了する。" },
-
   { "id": 26, "name": "平ヶ岳", "prefecture": "新潟県/群馬県", "area": "関東・甲信越", "difficulty": "E", "tags": ["高山植物"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Hiragatake", "catchphrase": "山頂に広がる湿原と池塘が美しい、百名山屈指の秘境。" },
-
   { "id": 27, "name": "巻機山", "prefecture": "新潟県/群馬県", "area": "関東・甲信越", "difficulty": "D", "tags": ["高山植物", "景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Makihata-yama", "catchphrase": "天上の楽園と称される、お花畑と草原が広がる山頂。" },
-
   { "id": 28, "name": "燧ヶ岳", "prefecture": "福島県", "area": "関東・甲信越", "difficulty": "C", "tags": ["景色・眺望", "高山植物"], "imageUrl": "https://images.unsplash.com/photo-1590391275929-a13248616143?w=600", "catchphrase": "尾瀬沼に映る姿は絶景。東北以北の最高峰。" },
-
   { "id": 29, "name": "至仏山", "prefecture": "群馬県", "area": "関東・甲信越", "difficulty": "C", "tags": ["高山植物"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Shibutsu-san", "catchphrase": "尾瀬ヶ原の西にそびえる蛇紋岩の山。高山植物の宝庫。" },
-
   { "id": 30, "name": "谷川岳", "prefecture": "群馬県/新潟県", "area": "関東・甲信越", "difficulty": "C", "tags": ["アクセス", "岩場・鎖場", "景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1619623831849-8f33725a073f?w=600", "catchphrase": "魔の山と呼ばれる厳しい一面と、ロープウェイで楽しめる手軽さを併せ持つ。" },
-
   { "id": 31, "name": "雨飾山", "prefecture": "新潟県/長野県", "area": "関東・甲信越", "difficulty": "D", "tags": ["景色・眺望", "温泉"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Amakazari-yama", "catchphrase": "猫の耳のような双耳峰が特徴的。紅葉の名所でもある。" },
-
   { "id": 32, "name": "苗場山", "prefecture": "新潟県/長野県", "area": "関東・甲信越", "difficulty": "D", "tags": ["高山植物"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Naeba-san", "catchphrase": "山頂に広がるラムサール条約登録の高層湿原は圧巻。" },
-
   { "id": 33, "name": "妙高山", "prefecture": "新潟県", "area": "関東・甲信越", "difficulty": "D", "tags": ["景色・眺望", "温泉"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Myoko-san", "catchphrase": "越後富士と称される美しい山容。周辺には温泉も豊富。" },
-
   { "id": 34, "name": "火打山", "prefecture": "新潟県", "area": "関東・甲信越", "difficulty": "D", "tags": ["高山植物", "景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Hiuchi-yama", "catchphrase": "天狗の庭など、数多くの池塘が点在する高山植物の楽園。" },
-
   { "id": 35, "name": "高妻山", "prefecture": "新潟県/長野県", "area": "関東・甲信越", "difficulty": "E", "tags": ["岩場・鎖場"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Takatsuma-yama", "catchphrase": "戸隠連峰の最高峰。修験の山らしい険しい道のり。" },
-
   { "id": 36, "name": "男体山", "prefecture": "栃木県", "area": "関東・甲信越", "difficulty": "C", "tags": ["景色・眺望", "歴史・信仰"], "imageUrl": "https://images.unsplash.com/photo-1621356019572-019d3641a8a2?w=600", "catchphrase": "中禅寺湖畔にそびえる信仰の山。山頂からの眺めは格別。" },
-
   { "id": 37, "name": "日光白根山", "prefecture": "群馬県/栃木県", "area": "関東・甲信越", "difficulty": "B", "tags": ["アクセス", "景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1596763835688-a734208a0d0d?w=600", "catchphrase": "関東以北の最高峰。ロープウェイ利用で日帰りも可能。" },
-
   { "id": 38, "name": "皇海山", "prefecture": "群馬県/栃木県", "area": "関東・甲信越", "difficulty": "E", "tags": [], "imageUrl": "https://via.placeholder.com/600x400.png?text=Sukai-san", "catchphrase": "アプローチの長さで知られる、百名山屈指の難関。" },
-
   { "id": 39, "name": "武尊山", "prefecture": "群馬県", "area": "関東・甲信越", "difficulty": "D", "tags": ["歴史・信仰"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Hotaka-yama(Gunma)", "catchphrase": "日本武尊の伝説が残る、変化に富んだ山。" },
-
   { "id": 40, "name": "赤城山", "prefecture": "群馬県", "area": "関東・甲信越", "difficulty": "A", "tags": ["アクセス", "景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1694936993132-15f93d395a12?w=600", "catchphrase": "カルデラ湖を囲む外輪山。ドライブやハイキングに最適。" },
-
   { "id": 41, "name": "草津白根山", "prefecture": "群馬県", "area": "関東・甲信越", "difficulty": "A", "tags": ["アクセス", "景色・眺望", "温泉"], "imageUrl": "https://images.unsplash.com/photo-1616093551041-e8d1a64f378a?w=600", "catchphrase": "神秘的な湯釜は必見。※火山活動により入山規制あり" },
-
   { "id": 42, "name": "四阿山", "prefecture": "群馬県/長野県", "area": "関東・甲信越", "difficulty": "C", "tags": ["高山植物"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Azumaya-san", "catchphrase": "花の百名山の一つ。根子岳との周遊も人気。" },
-
   { "id": 43, "name": "浅間山", "prefecture": "群馬県/長野県", "area": "関東・甲信越", "difficulty": "B", "tags": ["景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1605386043444-59e5a1b3f9e6?w=600", "catchphrase": "今も噴煙を上げる活火山。外輪山からの眺めは圧巻。" },
-
   { "id": 44, "name": "筑波山", "prefecture": "茨城県", "area": "関東・甲信越", "difficulty": "A", "tags": ["アクセス", "歴史・信仰"], "imageUrl": "https://images.unsplash.com/photo-1624618899554-d843575971a5?w=600", "catchphrase": "「西の富士、東の筑波」と称される名山。ケーブルカーで気軽に。" },
-
   { "id": 45, "name": "白馬岳", "prefecture": "長野県/富山県", "area": "北アルプス", "difficulty": "D", "tags": ["高山植物", "景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1596788484131-62b1a33758e5?w=600", "catchphrase": "日本最大級の白馬大雪渓を登る、夏山の醍醐味。" },
-
   { "id": 46, "name": "五竜岳", "prefecture": "長野県/富山県", "area": "北アルプス", "difficulty": "D", "tags": ["岩場・鎖場", "景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Goryu-dake", "catchphrase": "武田菱の雪形が有名。アルペン的な雰囲気が魅力。" },
-
   { "id": 47, "name": "鹿島槍ヶ岳", "prefecture": "長野県/富山県", "area": "北アルプス", "difficulty": "E", "tags": ["岩場・鎖場", "景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Kashima-Yari-ga-take", "catchphrase": "吊り尾根が美しい双耳峰。後立山連峰の盟主。" },
-
   { "id": 48, "name": "剱岳", "prefecture": "富山県", "area": "北アルプス", "difficulty": "F", "tags": ["岩場・鎖場", "景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1627993099933-404ab88544d9?w=600", "catchphrase": "「岩と雪の殿堂」。日本の一般登山道最難関に挑む。" },
-
   { "id": 49, "name": "立山", "prefecture": "富山県", "area": "北アルプス", "difficulty": "A", "tags": ["アクセス", "景色・眺望", "歴史・信仰"], "imageUrl": "https://images.unsplash.com/photo-1542039203649-3e33d2319c72?w=600", "catchphrase": "アルペンルートで楽々アクセス。神々しい山岳風景が広がる。" },
-
   { "id": 50, "name": "薬師岳", "prefecture": "富山県", "area": "北アルプス", "difficulty": "E", "tags": ["景色・眺望", "高山植物"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Yakushi-dake", "catchphrase": "巨大なカール地形が特徴。北アルプスの奥深さを感じる。" },
-
   { "id": 51, "name": "黒部五郎岳", "prefecture": "富山県/岐阜県", "area": "北アルプス", "difficulty": "E", "tags": ["景色・眺望", "高山植物"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Kurobegoro-dake", "catchphrase": "雄大なカールと美しい山容。北アルプスの最深部。" },
-
   { "id": 52, "name": "水晶岳", "prefecture": "富山県", "area": "北アルプス", "difficulty": "E", "tags": ["景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Suisho-dake", "catchphrase": "別名は黒岳。山頂からの360度パノラマは絶景。" },
-
   { "id": 53, "name": "鷲羽岳", "prefecture": "長野県/富山県", "area": "北アルプス", "difficulty": "E", "tags": ["景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Washiba-dake", "catchphrase": "鷲が羽を広げたような山容。山頂直下の鷲羽池は神秘的。" },
-
   { "id": 54, "name": "槍ヶ岳", "prefecture": "長野県/岐阜県", "area": "北アルプス", "difficulty": "E", "tags": ["岩場・鎖場", "景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1598126915647-2d4751034b53?w=600", "catchphrase": "天を突く日本のマッターホルン。全ての登山者の憧れ。" },
-
   { "id": 55, "name": "穂高岳", "prefecture": "長野県/岐阜県", "area": "北アルプス", "difficulty": "F", "tags": ["岩場・鎖場", "景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1507502737521-3ac6a5a3a713?w=600", "catchphrase": "日本屈指の岩稜帯。ジャンダルムを越えて、頂へ。" },
-
   { "id": 56, "name": "常念岳", "prefecture": "長野県", "area": "北アルプス", "difficulty": "D", "tags": ["景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Jonen-dake", "catchphrase": "ピラミッド型の美しい山容。槍・穂高連峰の絶好の展望台。" },
-
   { "id": 57, "name": "笠ヶ岳", "prefecture": "岐阜県", "area": "北アルプス", "difficulty": "E", "tags": ["景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Kasa-ga-take", "catchphrase": "長い笠新道を乗り越えた者だけが見られる絶景。" },
-
   { "id": 58, "name": "焼岳", "prefecture": "長野県/岐阜県", "area": "北アルプス", "difficulty": "B", "tags": ["景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1540375849887-89435423f66c?w=600", "catchphrase": "上高地から望む、今も活動する北アルプスの活火山。" },
-
   { "id": 59, "name": "乗鞍岳", "prefecture": "長野県/岐阜県", "area": "北アルプス", "difficulty": "A", "tags": ["アクセス", "景色・眺望", "高山植物"], "imageUrl": "https://images.unsplash.com/photo-1599556229949-546d1b72c212?w=600", "catchphrase": "バスで畳平へ。日本で最も手軽に登れる3000m峰。" },
-
   { "id": 60, "name": "御嶽山", "prefecture": "長野県/岐阜県", "area": "北アルプス", "difficulty": "C", "tags": ["アクセス", "歴史・信仰"], "imageUrl": "https://images.unsplash.com/photo-1629815024222-777e34faf087?w=600", "catchphrase": "古くからの山岳信仰の山。ロープウェイで7合目まで。※入山規制あり" },
-
   { "id": 61, "name": "美ヶ原", "prefecture": "長野県", "area": "関東・甲信越", "difficulty": "A", "tags": ["アクセス", "景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1621203531127-18751a021b6c?w=600", "catchphrase": "広大な台地状の高原。アルプスの大パノラマが広がる。" },
-
   { "id": 62, "name": "霧ヶ峰", "prefecture": "長野県", "area": "関東・甲信越", "difficulty": "A", "tags": ["アクセス", "高山植物"], "imageUrl": "https://images.unsplash.com/photo-1596707374929-7323f99738c8?w=600", "catchphrase": "ニッコウキスゲが咲き誇る、爽やかな高原ハイキング。" },
-
   { "id": 63, "name": "蓼科山", "prefecture": "長野県", "area": "関東・甲信越", "difficulty": "B", "tags": ["景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Tateshina-yama", "catchphrase": "諏訪富士と呼ばれる円錐形の美しい山。山頂は岩だらけ。" },
-
   { "id": 64, "name": "八ヶ岳", "prefecture": "長野県/山梨県", "area": "関東・甲信越", "difficulty": "D", "tags": ["岩場・鎖場", "景色・眺望", "温泉"], "imageUrl": "https://images.unsplash.com/photo-1595188094981-9871142a59a7?w=600", "catchphrase": "北と南で全く違う顔を持つ、アルペンムード満点の連峰。" },
-
   { "id": 65, "name": "両神山", "prefecture": "埼玉県", "area": "関東・甲信越", "difficulty": "C", "tags": ["岩場・鎖場", "歴史・信仰"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Ryokami-san", "catchphrase": "鎖場が連続する修験の道。スリルと達成感を味わう。" },
-
   { "id": 66, "name": "雲取山", "prefecture": "東京都/埼玉県/山梨県", "area": "関東・甲信越", "difficulty": "C", "tags": ["景色・眺望", "アクセス"], "imageUrl": "https://images.unsplash.com/photo-1694936993132-15f93d395a12?w=600", "catchphrase": "東京都最高峰。首都圏からアクセスしやすく、富士山の眺めも良い。" },
-
   { "id": 67, "name": "甲武信ヶ岳", "prefecture": "埼玉県/長野県/山梨県", "area": "関東・甲信越", "difficulty": "D", "tags": [], "imageUrl": "https://via.placeholder.com/600x400.png?text=Kobu-shin-ga-take", "catchphrase": "甲州・武州・信州の三国境。千曲川の源流を訪ねる。" },
-
   { "id": 68, "name": "金峰山", "prefecture": "山梨県/長野県", "area": "関東・甲信越", "difficulty": "C", "tags": ["景色・眺望", "歴史・信仰"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Kinpu-san", "catchphrase": "山頂の五丈岩がシンボル。奥秩父の主峰。" },
-
   { "id": 69, "name": "瑞牆山", "prefecture": "山梨県", "area": "関東・甲信越", "difficulty": "C", "tags": ["岩場・鎖場", "景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1599896688170-c75b28d052d0?w=600", "catchphrase": "巨大な花崗岩が林立する、天然の岩のオブジェ。" },
-
   { "id": 70, "name": "大菩薩嶺", "prefecture": "山梨県", "area": "関東・甲信越", "difficulty": "A", "tags": ["アクセス", "景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Daibosatsu-rei", "catchphrase": "初心者でも楽しめる稜線歩き。富士山の絶景が待っている。" },
-
   { "id": 71, "name": "丹沢山", "prefecture": "神奈川県", "area": "関東・甲信越", "difficulty": "D", "tags": ["アクセス"], "imageUrl": "https://images.unsplash.com/photo-1605279247069-335afea13221?w=600", "catchphrase": "首都圏から最も近い本格的な山塊。ヒル対策は必須。" },
-
   { "id": 72, "name": "富士山", "prefecture": "静岡県/山梨県", "area": "関東・甲信越", "difficulty": "C", "tags": ["景色・眺望", "アクセス", "歴史・信仰"], "imageUrl": "https://images.unsplash.com/photo-1578637387935-4504c5ea0916?w=600", "catchphrase": "言わずと知れた日本一の霊峰。一度は登りたい憧れの頂。" },
-
   { "id": 73, "name": "天城山", "prefecture": "静岡県", "area": "関東・甲信越", "difficulty": "B", "tags": ["アクセス", "高山植物"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Amagi-san", "catchphrase": "伊豆半島の最高峰。アマギシャクナゲのトンネルが美しい。" },
-
-  { "id": 74, "name": "木曽駒ヶ岳", "prefecture": "長野県", "area": "中央・南アルプス", "difficulty": "A", "tags": ["アクセス", "景色・眺望", "高山植物"], "imageUrl": "https://images.unsplash.com/photo-1597545012501-c983c5cf14e5?w=600", "catchphrase": "ロープウェイで一気に2600mへ。千畳敷カールの絶景。" },
-
-  { "id": 75, "name": "空木岳", "prefecture": "長野県", "area": "中央・南アルプス", "difficulty": "E", "tags": ["景色・眺望", "岩場・鎖場"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Utsugi-dake", "catchphrase": "中央アルプスの女王。美しい花崗岩の稜線が続く。" },
-
-  { "id": 76, "name": "恵那山", "prefecture": "長野県/岐阜県", "area": "中央・南アルプス", "difficulty": "D", "tags": ["歴史・信仰"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Ena-san", "catchphrase": "展望は少ないが、信仰の歴史を感じる静かな山。" },
-
+  { "id": 74, "name": "木曽駒ヶ岳", "prefecture": "長野県", "area": "中央アルプス", "difficulty": "A", "tags": ["アクセス", "景色・眺望", "高山植物"], "imageUrl": "https://images.unsplash.com/photo-1597545012501-c983c5cf14e5?w=600", "catchphrase": "ロープウェイで一気に2600mへ。千畳敷カールの絶景。" },
+  { "id": 75, "name": "空木岳", "prefecture": "長野県", "area": "中央アルプス", "difficulty": "E", "tags": ["景色・眺望", "岩場・鎖場"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Utsugi-dake", "catchphrase": "中央アルプスの女王。美しい花崗岩の稜線が続く。" },
+  { "id": 76, "name": "恵那山", "prefecture": "長野県/岐阜県", "area": "中央アルプス", "difficulty": "D", "tags": ["歴史・信仰"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Ena-san", "catchphrase": "展望は少ないが、信仰の歴史を感じる静かな山。" },
   { "id": 77, "name": "甲斐駒ヶ岳", "prefecture": "山梨県/長野県", "area": "南アルプス", "difficulty": "D", "tags": ["景色・眺望", "岩場・鎖場", "歴史・信仰"], "imageUrl": "https://images.unsplash.com/photo-1600326448332-9c103a89e472?w=600", "catchphrase": "白く輝く花崗岩の山体。南アルプスの貴公子。" },
-
   { "id": 78, "name": "仙丈ヶ岳", "prefecture": "長野県/山梨県", "area": "南アルプス", "difficulty": "C", "tags": ["景色・眺望", "高山植物"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Senjo-ga-take", "catchphrase": "南アルプスの女王。優雅なカールと高山植物の宝庫。" },
-
   { "id": 79, "name": "鳳凰山", "prefecture": "山梨県", "area": "南アルプス", "difficulty": "D", "tags": ["景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Houou-san", "catchphrase": "地蔵岳のオベリスクが象徴的。白砂の稜線が美しい。" },
-
   { "id": 80, "name": "北岳", "prefecture": "山梨県", "area": "南アルプス", "difficulty": "E", "tags": ["景色・眺望", "高山植物"], "imageUrl": "https://images.unsplash.com/photo-1629815024222-777e34faf087?w=600", "catchphrase": "日本第二位の高峰。固有種キタダケソウが咲く花の山。" },
-
   { "id": 81, "name": "間ノ岳", "prefecture": "静岡県/山梨県", "area": "南アルプス", "difficulty": "E", "tags": ["景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Ainodake", "catchphrase": "日本第三位の高峰。北岳からの雄大な稜線歩き。" },
-
   { "id": 82, "name": "塩見岳", "prefecture": "長野県/静岡県", "area": "南アルプス", "difficulty": "F", "tags": ["景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Shiomi-dake", "catchphrase": "南アルプスの中心に位置する、どっしりとした山容。" },
-
   { "id": 83, "name": "悪沢岳", "prefecture": "静岡県", "area": "南アルプス", "difficulty": "F", "tags": ["景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Warusawa-dake", "catchphrase": "荒川三山の一つ。ダイナミックな山容と大パノラマ。" },
-
   { "id": 84, "name": "赤石岳", "prefecture": "長野県/静岡県", "area": "南アルプス", "difficulty": "F", "tags": ["景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Akaishi-dake", "catchphrase": "山肌の赤色片岩が名前の由来。南アルプスの盟主。" },
-
   { "id": 85, "name": "聖岳", "prefecture": "長野県/静岡県", "area": "南アルプス", "difficulty": "F", "tags": ["景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Hijiri-dake", "catchphrase": "南アルプス最南端の3000m峰。静かな山旅が楽しめる。" },
-
   { "id": 86, "name": "光岳", "prefecture": "長野県/静岡県", "area": "南アルプス", "difficulty": "F", "tags": [], "imageUrl": "https://via.placeholder.com/600x400.png?text=Tekari-dake", "catchphrase": "日本最南端の氷河地形が残る、静寂の山。" },
-
   { "id": 87, "name": "白山", "prefecture": "石川県/岐阜県", "area": "西日本", "difficulty": "C", "tags": ["高山植物", "景色・眺望", "歴史・信仰"], "imageUrl": "https://images.unsplash.com/photo-1613949984992-d6a36f455355?w=600", "catchphrase": "日本三霊山の一つ。高山植物と信仰の篤い山。" },
-
   { "id": 88, "name": "荒島岳", "prefecture": "福井県", "area": "西日本", "difficulty": "C", "tags": [], "imageUrl": "https://via.placeholder.com/600x400.png?text=Arashima-dake", "catchphrase": "急登「シャクナゲ平」を越えれば、山頂からの大展望。" },
-
   { "id": 89, "name": "伊吹山", "prefecture": "滋賀県/岐阜県", "area": "西日本", "difficulty": "A", "tags": ["アクセス", "高山植物"], "imageUrl": "https://images.unsplash.com/photo-1629815024222-777e34faf087?w=600", "catchphrase": "ドライブウェイで山頂へ。薬草とお花畑の山。" },
-
   { "id": 90, "name": "大台ヶ原山", "prefecture": "三重県/奈良県", "area": "西日本", "difficulty": "A", "tags": ["アクセス", "景色・眺望"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Odaigahara", "catchphrase": "日本有数の多雨地帯。幻想的な立ち枯れの風景が広がる。" },
-
   { "id": 91, "name": "大峰山", "prefecture": "奈良県", "area": "西日本", "difficulty": "C", "tags": ["歴史・信仰", "岩場・鎖場"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Omine-san", "catchphrase": "女人禁制の伝統が残る修験道の聖地。" },
-
   { "id": 92, "name": "大山", "prefecture": "鳥取県", "area": "西日本", "difficulty": "B", "tags": ["景色・眺望", "歴史・信仰"], "imageUrl": "https://images.unsplash.com/photo-1598343729899-73f6a22c5457?w=600", "catchphrase": "伯耆富士と称される中国地方の最高峰。" },
-
   { "id": 93, "name": "剣山", "prefecture": "徳島県", "area": "西日本", "difficulty": "A", "tags": ["アクセス", "歴史・信仰"], "imageUrl": "https://via.placeholder.com/600x400.png?text=Tsurugi-san", "catchphrase": "リフトで楽々。平家の伝説が残る、信仰の山。" },
-
   { "id": 94, "name": "石鎚山", "prefecture": "愛媛県", "area": "西日本", "difficulty": "B", "tags": ["アクセス", "岩場・鎖場", "歴史・信仰"], "imageUrl": "https://images.unsplash.com/photo-1659795119731-8270562c5b7c?w=600", "catchphrase": "西日本最高峰。名物の「試しの鎖」に挑戦。" },
-
   { "id": 95, "name": "九重山", "prefecture": "大分県", "area": "西日本", "difficulty": "B", "tags": ["景色・眺望", "高山植物", "温泉"], "imageUrl": "https://images.unsplash.com/photo-1632738734994-6e4f3a970e6e?w=600", "catchphrase": "九州の屋根。ミヤマキリシマが咲き誇る絶景。" },
-
   { "id": 96, "name": "祖母山", "prefecture": "大分県/宮崎県", "area": "西日本", "difficulty": "D", "tags": [], "imageUrl": "https://via.placeholder.com/600x400.png?text=Sobo-san", "catchphrase": "神武天皇の祖母が祀られたという伝説の山。" },
-
   { "id": 97, "name": "阿蘇山", "prefecture": "熊本県", "area": "西日本", "difficulty": "A", "tags": ["アクセス", "景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1589334584428-a281694f4b9f?w=600", "catchphrase": "世界最大級のカルデラ。大地のエネルギーを感じる。" },
-
   { "id": 98, "name": "霧島山", "prefecture": "宮崎県/鹿児島県", "area": "西日本", "difficulty": "B", "tags": ["景色・眺望", "歴史・信仰", "温泉"], "imageUrl": "https://images.unsplash.com/photo-1627894084333-568370163aea?w=600", "catchphrase": "天孫降臨の神話が息づく、火山群と火口湖の山。" },
-
   { "id": 99, "name": "開聞岳", "prefecture": "鹿児島県", "area": "西日本", "difficulty": "B", "tags": ["景色・眺望"], "imageUrl": "https://images.unsplash.com/photo-1630168335359-9f76a3e2a96c?w=600", "catchphrase": "薩摩富士と呼ばれる、海に突き出た美しい円錐峰。" },
-
   { "id": 100, "name": "宮之浦岳", "prefecture": "鹿児島県", "area": "西日本", "difficulty": "E", "tags": ["景色・眺望", "高山植物"], "imageUrl": "https://images.unsplash.com/photo-1581788248599-52e73792f026?w=600", "catchphrase": "九州最高峰。洋上のアルプス、屋久島の奥深さを体感。" }
-
-];
+]
